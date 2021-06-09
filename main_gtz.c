@@ -50,7 +50,7 @@ void main(void)
     /* Instantiate 8 parallel ISRs for each of the eight Goertzel coefficients */
 	Clock_create(clk_SWI_GTZ_0697Hz, TIMEOUT, &clkParams, NULL);
 
-	mag1 = 32768.0; mag2 = 32768.0; freq1 = 770; // I am setting freq1 = 697Hz to test my GTZ algorithm with one frequency.
+	mag1 = 32768.0; mag2 = 32768.0; freq1 = 697; // I am setting freq1 = 697Hz to test my GTZ algorithm with one frequency.
 
 	/* Start SYS_BIOS */
     BIOS_start();
