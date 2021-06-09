@@ -87,29 +87,13 @@ void clk_SWI_GTZ_0697Hz(UArg arg0)
    	static short delay_1 = 0;
    	static short delay_2 = 0;
 
-   	int prod1, prod2, prod3, sum;
-
-   	int R_in;
+   	int prod1, prod2, prod3;
 
    	short input;
-
-   	short int coef_1;
+   	short coef_1 = 0x6D02;
 
 // to be completed
-   	 int n;
-     static short int freq[8]={697, 770, 852, 941, 1209, 1336, 1477, 1633};
-     for(n=0; n<8; n++)
-      {
-    	  if(freq1 == freq[n])
-    	  {
-    		  coef_1 = coef[n];
-    		  break;
-    	  }
-      }
-
-      R_in = sample;
-      input = (short) R_in;
-      input = input >> 4; // Scale down input the prevent overflow
+      input = (short) sample ;
 
       prod1 = (delay_1*coef_1)>>14;
       delay = input + (short)prod1-delay_2;
@@ -131,8 +115,9 @@ void clk_SWI_GTZ_0697Hz(UArg arg0)
       }
 
 
-    gtz_out[0] = (((short) R_in) * ((short)Goertzel_Value)) >> 15;
+    gtz_out[0] = Goertzel_Value;
 
     return;
 
 }
+
