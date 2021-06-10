@@ -108,7 +108,7 @@ void clk_SWI_GTZ_0697Hz(UArg arg0)
     	  prod3 = prod3 * delay_2;
 
     	  Goertzel_Value = (prod1+prod2-prod3) >>15;
-    	  Goertzel_Value <<= 4; // Scale up value for sensitivity
+    	  Goertzel_Value <<= 8; // Scale up value for sensitivity
     	  N = 0;
     	  delay_1 = delay_2 =0;
 
