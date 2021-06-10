@@ -47,6 +47,13 @@ void main(void)
 
     /* Instantiate 8 parallel ISRs for each of the eight Goertzel coefficients */
 	Clock_create(clk_SWI_GTZ_0697Hz, TIMEOUT, &clkParams, NULL);
+	Clock_create(clk_SWI_GTZ_0770Hz, TIMEOUT, &clkParams, NULL);
+	Clock_create(clk_SWI_GTZ_0852Hz, TIMEOUT, &clkParams, NULL);
+	Clock_create(clk_SWI_GTZ_0941Hz, TIMEOUT, &clkParams, NULL);
+	Clock_create(clk_SWI_GTZ_01209Hz,TIMEOUT, &clkParams, NULL);
+	Clock_create(clk_SWI_GTZ_01336Hz,TIMEOUT, &clkParams, NULL);
+	Clock_create(clk_SWI_GTZ_01477Hz,TIMEOUT, &clkParams, NULL);
+	Clock_create(clk_SWI_GTZ_01633Hz, TIMEOUT, &clkParams, NULL);
 
 
 	/* Start SYS_BIOS */
