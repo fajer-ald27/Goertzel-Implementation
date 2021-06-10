@@ -17,7 +17,13 @@
 
 void clk_SWI_Generate_DTMF(UArg arg0);
 void clk_SWI_GTZ_0697Hz(UArg arg0);
-
+void clk_SWI_GTZ_0770Hz(UArg arg0);
+void clk_SWI_GTZ_0852Hz(UArg arg0);
+void clk_SWI_GTZ_0941Hz(UArg arg0);
+void clk_SWI_GTZ_01209Hz(UArg arg0);
+void clk_SWI_GTZ_01336Hz(UArg arg0);
+void clk_SWI_GTZ_01477Hz(UArg arg0);
+void clk_SWI_GTZ_01633Hz(UArg arg0);
 
 extern void task0_dtmfGen(void);
 extern void task1_dtmfDetect(void);
