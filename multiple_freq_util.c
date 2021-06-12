@@ -72,61 +72,69 @@ void task1_dtmfDetect(void)
 
 		System_printf("\n Please press a key ( 0 to 9 or A, B, C, D or *, # ) \n");
 		System_flush();
-		scanf("%d", &input);
+		scanf(" %c", &input);
 
-		if(input == 0){
-			freq1 = 941;
+        mag1 = 32768.0, mag2 = 32768.0
+
+		if(input == 48){
+			freq1 = 941; 
 			freq2 = 1335;
-		}else if(input == 1){
+		}else if(input == 49){
 			freq1 = 697;
 			freq2 = 1209;
-		}else if(input == 2){
+		}else if(input == 50){
 			freq1 = 697;
 			freq2 = 1335;
-		}else if(input == 3){
+		}else if(input == 51){
 			freq1 = 697;
 			freq2 = 1477;
-		}else if(input == 4){
+		}else if(input == 52){
 			freq1 = 770;
 			freq2 = 1209;
-		}else if(input == 5){
+		}else if(input == 53){
 			freq1 = 770;
 			freq2 = 1335;
-		}else if(input == 6){
+		}else if(input == 54){
 			freq1 = 770;
 			freq2 = 1477;
-		}else if(input == 7){
+		}else if(input == 55){
 			freq1 = 852;
 			freq2 = 1209;
-		}else if(input == 8){
+		}else if(input == 56){
 			freq1 = 852;
 			freq2 = 1335;
-		}else if(input == 9){
+		}else if(input == 57){
 			freq1 = 852;
 			freq2 = 1477;
-                }else if(input == A){
+        // A, a
+        }else if(input == 65 or input == 97){
 			freq1 = 1633;
 			freq2 = 697;
-                }else if(input == B){
+        // B, b
+        }else if(input == 66 or input == 98){
 			freq1 = 1633;
 			freq2 = 770;
-                }else if(input == C){
+        // C, c
+        }else if(input == 67 or input == 99){
 			freq1 = 1633;
 			freq2 = 852;
-                }else if(input == D){
+        // D, d
+        }else if(input == 68 or input == 100){
 			freq1 = 1633;
 			freq2 = 941;
-                }else if(input == *){
+        // * 
+        }else if(input == 42){
 			freq1 = 1209;
 			freq2 = 941;
-                }else if(input == #){
+        // #
+        }else if(input == 35){
 			freq1 = 1477;
 			freq2 = 941;
 		}
-
-
-	
-	}
-}
-
-
+        else {
+            mag1 = 00000.0, mag2 = 00000.0, freq1 = 000, freq2 = 0000
+        }
+        
+        
+    Task_sleep(500);
+    a1=0, a2=0, f1=0, f2=0;
