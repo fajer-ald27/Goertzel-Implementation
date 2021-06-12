@@ -15,7 +15,7 @@
 #include <math.h>
 #include "gtz.h"
 
-#define threshold 1000
+#define threshold 2000
 
 UInt32 time1, time2;
 
