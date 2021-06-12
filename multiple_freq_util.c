@@ -15,7 +15,7 @@
 #include <math.h>
 #include "gtz.h"
 
-#define threshold 2000
+#define threshold 1000
 
 UInt32 time1, time2;
 
@@ -41,67 +41,144 @@ void task1_dtmfDetect(void)
 		System_flush();
 		scanf(" %c", &input);
 
-        mag1 = 32768.0, mag2 = 32768.0
-
-		if(input == 48){
-			freq1 = 941; 
-			freq2 = 1335;
-		}else if(input == 49){
-			freq1 = 697;
-			freq2 = 1209;
-		}else if(input == 50){
-			freq1 = 697;
-			freq2 = 1335;
-		}else if(input == 51){
-			freq1 = 697;
-			freq2 = 1477;
-		}else if(input == 52){
-			freq1 = 770;
-			freq2 = 1209;
-		}else if(input == 53){
-			freq1 = 770;
-			freq2 = 1335;
-		}else if(input == 54){
-			freq1 = 770;
-			freq2 = 1477;
-		}else if(input == 55){
-			freq1 = 852;
-			freq2 = 1209;
-		}else if(input == 56){
-			freq1 = 852;
-			freq2 = 1335;
-		}else if(input == 57){
-			freq1 = 852;
-			freq2 = 1477;
-        // A, a
-        }else if(input == 65 || input == 97){
-			freq1 = 1633;
-			freq2 = 697;
-        // B, b
-        }else if(input == 66 || input == 98){
-			freq1 = 1633;
-			freq2 = 770;
-        // C, c
-        }else if(input == 67 || input == 99){
-			freq1 = 1633;
-			freq2 = 852;
-        // D, d
-        }else if(input == 68 || input == 100){
-			freq1 = 1633;
-			freq2 = 941;
-        // * 
-        }else if(input == 42){
-			freq1 = 1209;
-			freq2 = 941;
-        // #
-        }else if(input == 35){
-			freq1 = 1477;
-			freq2 = 941;
-		}
-        else {
-            mag1 = 00000.0, mag2 = 00000.0, freq1 = 000, freq2 = 0000
+        mag1 = 32768.0, mag2 = 32768.0;
+        
+        
+        switch (input) {
+            
+                // 0
+            case 8398128:
+                freq1 = 941;
+                freq2 = 1335;
+                break;
+                
+                // 1
+                
+            
+            case 8398129:
+                freq1 = 697;
+                freq2 = 1209;
+                break;
+                
+                //2
+           
+            case 8398130:
+                freq1 = 697;
+                freq2 = 1335;
+                break;
+                
+                //3
+            
+            case 8398131:
+                freq1 = 697;
+                freq2 = 1477;
+                break;
+                
+                //4
+            
+            case 8398132:
+                freq1 = 770;
+                freq2 = 1209;
+                break;
+                
+                //5
+            
+            case 8398133:
+                freq1 = 770;
+                freq2 = 1335;
+                break;
+                
+                //6
+                
+            case 8398134:
+                freq1 = 770;
+                freq2 = 1477;
+                break;
+                
+                //7
+            
+            case 8398135:
+                freq1 = 852;
+                freq2 = 1209;
+                break;
+                
+                //8
+                
+            case 8398136:
+                freq1 = 852;
+                freq2 = 1335;
+                break;
+                
+                //9
+            
+            case 8398137:
+                freq1 = 852;
+                freq2 = 1477;
+                break;
+                
+                
+            //A
+            
+            case 8398145:
+                freq1 = 1633;
+                freq2 = 697;
+                break;
+                
+            //a
+            case 8398177:
+                freq1 = 1633;
+                freq2 = 697;
+                break;
+                
+            //B
+            case 8398146:
+                freq1 = 1633;
+                freq2 = 770;
+                break;
+            //b
+            case 8398178:
+                freq1 = 1633;
+                freq2 = 770;
+                break;
+            //C
+            case 8398147:
+                freq1 = 1633;
+                freq2 = 852;
+                break;
+            //c
+            case 8398179:
+                freq1 = 1633;
+                freq2 = 852;
+                break;
+            //D
+            case 8398148:
+                freq1 = 1633;
+                freq2 = 941;
+                break;
+            //d
+            case 8398180:
+                freq1 = 1633;
+                freq2 = 941;
+                break;
+            //*
+            case 8398122:
+                freq1 = 1209;
+                freq2 = 941;
+                break;
+            //#
+            case 8398115:
+                freq1 = 1477;
+                freq2 = 941;
+                break;
+    
+            default:
+                mag1 = 00000.0;
+                mag2 = 00000.0;
+                freq1 = 000;
+                freq2 = 0000;
+                break;
         }
-
+     
         
         Task_sleep(500);
 
@@ -118,52 +195,52 @@ void task1_dtmfDetect(void)
 
 
 
-		 if(gtz_out[0] != 0 && gtz_out[4] != 0){
+		 if(gtz_out[0] >1000 && gtz_out[4]  >1000){
 			System_printf("\n The Button is 1");
 			System_flush();
-		}else if(gtz_out[0] != 0 && gtz_out[5] != 0){
+		}else if(gtz_out[0]  >1000 && gtz_out[5]  >1000){
 			System_printf("\n The Button is 2");
 			System_flush();
-		}else if(gtz_out[0] != 0 && gtz_out[6] != 0){
+		}else if(gtz_out[0]  >1000 && gtz_out[6]  >1000){
 			System_printf("\n The Button is 3");
 			System_flush();
-		}else if(gtz_out[0] != 0 && gtz_out[7] != 0){
+		}else if(gtz_out[0]  >1000 && gtz_out[7]  >1000){
 			System_printf("\n The Button is A");
 			System_flush();
-		}else if(gtz_out[1] != 0 && gtz_out[4] != 0){
+		}else if(gtz_out[1]  >1000 && gtz_out[4]  >1000){
 			System_printf("\n The Button is 4");
 			System_flush();
-		}else if(gtz_out[1] != 0 && gtz_out[5] != 0){
+		}else if(gtz_out[1]  >1000 && gtz_out[5]  >1000){
 			System_printf("\n The Button is 5");
 			System_flush();
-		}else if(gtz_out[1] != 0 && gtz_out[6] != 0){
+		}else if(gtz_out[1]  >1000 && gtz_out[6]  >1000){
 			System_printf("\n The Button is 6");
 			System_flush();
-		}else if(gtz_out[1] != 0 && gtz_out[7] != 0){
+		}else if(gtz_out[1]  >1000 && gtz_out[7]  >1000){
 			System_printf("\n The Button is B");
 			System_flush();
-		}else if(gtz_out[2] != 0 && gtz_out[4] != 0){
+		}else if(gtz_out[2]  >1000 && gtz_out[4]  >1000){
 			System_printf("\n The Button is 7");
 			System_flush();
-		}else if(gtz_out[2] != 0 && gtz_out[5] != 0){
+		}else if(gtz_out[2]  >1000 && gtz_out[5]  >1000){
 			System_printf("\n The Button is 8");
 			System_flush();
-        }else if(gtz_out[2] != 0 && gtz_out[6] != 0){
+        }else if(gtz_out[2]  >1000 && gtz_out[6]  >1000){
 			System_printf("\n The Button is 9");
 			System_flush();
-        }else if(gtz_out[2] != 0 && gtz_out[7] != 0){
+        }else if(gtz_out[2]  >1000 && gtz_out[7]  >1000){
 			System_printf("\n The Button is C");
 			System_flush();
-        }else if(gtz_out[3] != 0 && gtz_out[4]!= 0){
+        }else if(gtz_out[3]  >1000 && gtz_out[4] >1000){
 			System_printf("\n The Button is *");
 			System_flush();
-        }else if(gtz_out[3] != 0 && gtz_out[5]!= 0){
+        }else if(gtz_out[3]  >1000 && gtz_out[5] >1000){
 			System_printf("\n The Button is 0");
 			System_flush();
-        }else if(gtz_out[3] != 0 && gtz_out[6]!= 0){
+        }else if(gtz_out[3]  >1000 && gtz_out[6] >1000){
 			System_printf("\n The Button is #");
 			System_flush();
-        }else if(gtz_out[3] != 0 && gtz_out[7] != 0){
+        }else if(gtz_out[3]  >1000 && gtz_out[7]  >1000){
 			System_printf("\n The Button is D");
 			System_flush();
 		}
