@@ -127,7 +127,7 @@ void task1_dtmfDetect(void)
 
 	System_printf("\n Please a wait for few minutes\n");
 	System_flush();
-	System_printf("\n The GTZ is %d\n", gtz_out[0]);
+	System_printf("\n The GTZ is %d\n", gtz_out[8]);
 	a1=0, a2=0, f1=0, f2=0;
 	}
 }
