@@ -74,19 +74,19 @@ void task1_dtmfDetect(void)
 			freq1 = 852;
 			freq2 = 1477;
         // A, a
-        }else if(input == 65 or input == 97){
+        }else if(input == 65 || input == 97){
 			freq1 = 1633;
 			freq2 = 697;
         // B, b
-        }else if(input == 66 or input == 98){
+        }else if(input == 66 || input == 98){
 			freq1 = 1633;
 			freq2 = 770;
         // C, c
-        }else if(input == 67 or input == 99){
+        }else if(input == 67 || input == 99){
 			freq1 = 1633;
 			freq2 = 852;
         // D, d
-        }else if(input == 68 or input == 100){
+        }else if(input == 68 || input == 100){
 			freq1 = 1633;
 			freq2 = 941;
         // * 
@@ -118,52 +118,52 @@ void task1_dtmfDetect(void)
 
 
 
-		 if(gtz_out[0] != 0 and gtz_out[4] != 0){
+		 if(gtz_out[0] != 0 && gtz_out[4] != 0){
 			System_printf("\n The Button is 1");
 			System_flush();
-		}else if(gtz_out[0] != 0 and gtz_out[5] != 0){
+		}else if(gtz_out[0] != 0 && gtz_out[5] != 0){
 			System_printf("\n The Button is 2");
 			System_flush();
-		}else if(gtz_out[0] != 0 and gtz_out[6] != 0){
+		}else if(gtz_out[0] != 0 && gtz_out[6] != 0){
 			System_printf("\n The Button is 3");
 			System_flush();
-		}else if(gtz_out[0] != 0 and gtz_out[7] != 0){
+		}else if(gtz_out[0] != 0 && gtz_out[7] != 0){
 			System_printf("\n The Button is A");
 			System_flush();
-		}else if(gtz_out[1] != 0 and gtz_out[4] != 0){
+		}else if(gtz_out[1] != 0 && gtz_out[4] != 0){
 			System_printf("\n The Button is 4");
 			System_flush();
-		}else if(gtz_out[1] != 0 and gtz_out[5] != 0){
+		}else if(gtz_out[1] != 0 && gtz_out[5] != 0){
 			System_printf("\n The Button is 5");
 			System_flush();
-		}else if(gtz_out[1] != 0 and gtz_out[6] != 0){
+		}else if(gtz_out[1] != 0 && gtz_out[6] != 0){
 			System_printf("\n The Button is 6");
 			System_flush();
-		}else if(gtz_out[1] != 0 and gtz_out[7] != 0){
+		}else if(gtz_out[1] != 0 && gtz_out[7] != 0){
 			System_printf("\n The Button is B");
 			System_flush();
-		}else if(gtz_out[2] != 0 and gtz_out[4] != 0){
+		}else if(gtz_out[2] != 0 && gtz_out[4] != 0){
 			System_printf("\n The Button is 7");
 			System_flush();
-		}else if(gtz_out[2] != 0 and gtz_out[5] != 0){
+		}else if(gtz_out[2] != 0 && gtz_out[5] != 0){
 			System_printf("\n The Button is 8");
 			System_flush();
-        }else if(gtz_out[2] != 0 and gtz_out[6] != 0){
+        }else if(gtz_out[2] != 0 && gtz_out[6] != 0){
 			System_printf("\n The Button is 9");
 			System_flush();
-        }else if(gtz_out[2] != 0 and gtz_out[7] != 0){
+        }else if(gtz_out[2] != 0 && gtz_out[7] != 0){
 			System_printf("\n The Button is C");
 			System_flush();
-        }else if(gtz_out[3] != 0 and gtz_out[4]!= 0){
+        }else if(gtz_out[3] != 0 && gtz_out[4]!= 0){
 			System_printf("\n The Button is *");
 			System_flush();
-        }else if(gtz_out[3] != 0 and gtz_out[5]!= 0){
+        }else if(gtz_out[3] != 0 && gtz_out[5]!= 0){
 			System_printf("\n The Button is 0");
 			System_flush();
-        }else if(gtz_out[3] != 0 and gtz_out[6]!= 0){
+        }else if(gtz_out[3] != 0 && gtz_out[6]!= 0){
 			System_printf("\n The Button is #");
 			System_flush();
-        }else if(gtz_out[3] != 0 and gtz_out[7] != 0){
+        }else if(gtz_out[3] != 0 && gtz_out[7] != 0){
 			System_printf("\n The Button is D");
 			System_flush();
 		}
