@@ -36,6 +36,8 @@ void task1_dtmfDetect(void)
 	int input;
 
 	while (1) {
+		
+		
 
 
 
@@ -68,7 +70,7 @@ void task1_dtmfDetect(void)
 
 		// 2. Read the GTZ for each frequency and take a decision on which key has been pressed and print it.
 
-		System_printf("\n Please press a key ( 0 to 9 or A, B, C, D) \n");
+		System_printf("\n Please press a key ( 0 to 9 or A, B, C, D or *, # ) \n");
 		System_flush();
 		scanf("%d", &input);
 
@@ -99,9 +101,27 @@ void task1_dtmfDetect(void)
 		}else if(input == 8){
 			freq1 = 852;
 			freq2 = 1335;
-		}else{
+		}else if(input == 9){
 			freq1 = 852;
 			freq2 = 1477;
+                }else if(input == A){
+			freq1 = 1633;
+			freq2 = 697;
+                }else if(input == B){
+			freq1 = 1633;
+			freq2 = 770;
+                }else if(input == C){
+			freq1 = 1633;
+			freq2 = 852;
+                }else if(input == D){
+			freq1 = 1633;
+			freq2 = 941;
+                }else if(input == *){
+			freq1 = 1209;
+			freq2 = 941;
+                }else if(input == #){
+			freq1 = 1477;
+			freq2 = 941;
 		}
 
 
@@ -111,4 +131,5 @@ void task1_dtmfDetect(void)
 	a1=0, a2=0, f1=0, f2=0;
 	}
 }
+
 
