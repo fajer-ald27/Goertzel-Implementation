@@ -37,39 +37,6 @@ void task1_dtmfDetect(void)
 
 	while (1) {
 		
-		
-
-
-
-		/*	 1. write a code that keep reading the value of "digit" from the keyboard and set the magnitude for mag1 = mag2= 32768.0 and the frequencies freq1 and freq2 according the digit value as:
-			 in case when the wrong digit is entered, set: the mag1 = 00000.0, mag2 = 00000.0, freq1 = 000 and freq2 = 0000
-
-
-
-
-						 '0' : mag1 = 32768.0, mag2 = 32768.0, freq1 = 941, freq2 = 1335
-						 '1' : mag1 = 32768.0, mag2 = 32768.0, freq1 = 697, freq2 = 1209,
-						 '2' : mag1 = 32768.0, mag2 = 32768.0, freq1 = 697, freq2 = 1335,
-						 '3' : mag1 = 32768.0, mag2 = 32768.0, freq1 = 697, freq2 = 1477,
-						 '4' : mag1 = 32768.0, mag2 = 32768.0, freq1 = 770, freq2 = 1209,
-						 '5' : mag1 = 32768.0, mag2 = 32768.0, freq1 = 770, freq2 = 1335,
-						 '6' : mag1 = 32768.0, mag2 = 32768.0, freq1 = 770, freq2 = 1477,
-						 '7' : mag1 = 32768.0, mag2 = 32768.0, freq1 = 852, freq2 = 1209,
-						 '8' : mag1 = 32768.0, mag2 = 32768.0, freq1 = 852, freq2 = 1335,
-						 '9' : mag1 = 32768.0, mag2 = 32768.0, freq1 = 852, freq2 = 1477,
-						 '*' : mag1 = 32768.0, mag2 = 32768.0, freq1 = 941, freq2 = 1209,
-						 '#' : mag1 = 32768.0, mag2 = 32768.0, freq1 = 941, freq2 = 1477,
-						 'A' : mag1 = 32768.0, mag2 = 32768.0, freq1 = 697, freq2 = 1633,
-						 'B' : mag1 = 32768.0, mag2 = 32768.0, freq1 = 770, freq2 = 1633,
-						 'C' : mag1 = 32768.0, mag2 = 32768.0, freq1 = 852, freq2 = 1633,
-						 'D' : mag1 = 32768.0, mag2 = 32768.0, freq1 = 941, freq2 = 1633,
-						otherwise : mag1 = 00000.0, mag2 = 00000.0, freq1 = 000, freq2 = 0000  */
-
-
-		Task_sleep(500);
-
-		// 2. Read the GTZ for each frequency and take a decision on which key has been pressed and print it.
-
 		System_printf("\n Please press a key ( 0 to 9 or A, B, C, D or *, # ) \n");
 		System_flush();
 		scanf(" %c", &input);
@@ -134,7 +101,83 @@ void task1_dtmfDetect(void)
         else {
             mag1 = 00000.0, mag2 = 00000.0, freq1 = 000, freq2 = 0000
         }
+
         
-        
-    Task_sleep(500);
+        Task_sleep(500);
+
+		/*gtz_out[0]= 697Hz
+		gtz_out[1]= 770Hz
+		gtz_out[2]= 852Hz
+		gtz_out[3]= 941Hz
+		gtz_out[4]= 1209Hz
+		gtz_out[5]= 1336Hz
+		gtz_out[6]= 1477Hz
+		gtz_out[7]= 1633Hz
+		*/
+
+
+
+
+		 if(gtz_out[0] != 0 and gtz_out[4] != 0){
+			System_printf("\n The Button is 1");
+			System_flush();
+		}else if(gtz_out[0] != 0 and gtz_out[5] != 0){
+			System_printf("\n The Button is 2");
+			System_flush();
+		}else if(gtz_out[0] != 0 and gtz_out[6] != 0){
+			System_printf("\n The Button is 3");
+			System_flush();
+		}else if(gtz_out[0] != 0 and gtz_out[7] != 0){
+			System_printf("\n The Button is A");
+			System_flush();
+		}else if(gtz_out[1] != 0 and gtz_out[4] != 0){
+			System_printf("\n The Button is 4");
+			System_flush();
+		}else if(gtz_out[1] != 0 and gtz_out[5] != 0){
+			System_printf("\n The Button is 5");
+			System_flush();
+		}else if(gtz_out[1] != 0 and gtz_out[6] != 0){
+			System_printf("\n The Button is 6");
+			System_flush();
+		}else if(gtz_out[1] != 0 and gtz_out[7] != 0){
+			System_printf("\n The Button is B");
+			System_flush();
+		}else if(gtz_out[2] != 0 and gtz_out[4] != 0){
+			System_printf("\n The Button is 7");
+			System_flush();
+		}else if(gtz_out[2] != 0 and gtz_out[5] != 0){
+			System_printf("\n The Button is 8");
+			System_flush();
+        }else if(gtz_out[2] != 0 and gtz_out[6] != 0){
+			System_printf("\n The Button is 9");
+			System_flush();
+        }else if(gtz_out[2] != 0 and gtz_out[7] != 0){
+			System_printf("\n The Button is C");
+			System_flush();
+        }else if(gtz_out[3] != 0 and gtz_out[4]!= 0){
+			System_printf("\n The Button is *");
+			System_flush();
+        }else if(gtz_out[3] != 0 and gtz_out[5]!= 0){
+			System_printf("\n The Button is 0");
+			System_flush();
+        }else if(gtz_out[3] != 0 and gtz_out[6]!= 0){
+			System_printf("\n The Button is #");
+			System_flush();
+        }else if(gtz_out[3] != 0 and gtz_out[7] != 0){
+			System_printf("\n The Button is D");
+			System_flush();
+		}
+        else {
+			System_printf("The wrong Button has been pressed");
+			System_flush();
+		}
+            
+
+
+
     a1=0, a2=0, f1=0, f2=0;
+
+    
+	}
+}
+
