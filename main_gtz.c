@@ -25,6 +25,7 @@ void clk_SWI_GTZ_01336Hz(UArg arg0);
 void clk_SWI_GTZ_01477Hz(UArg arg0);
 void clk_SWI_GTZ_01633Hz(UArg arg0);
 
+
 extern void task0_dtmfGen(void);
 extern void task1_dtmfDetect(void);
 
@@ -52,6 +53,7 @@ void main(void)
 	Clock_create(clk_SWI_Generate_DTMF, TIMEOUT, &clkParams, NULL);
 
     /* Instantiate 8 parallel ISRs for each of the eight Goertzel coefficients */
+
 	Clock_create(clk_SWI_GTZ_0697Hz, TIMEOUT, &clkParams, NULL);
 	Clock_create(clk_SWI_GTZ_0770Hz, TIMEOUT, &clkParams, NULL);
 	Clock_create(clk_SWI_GTZ_0852Hz, TIMEOUT, &clkParams, NULL);
@@ -59,7 +61,7 @@ void main(void)
 	Clock_create(clk_SWI_GTZ_01209Hz,TIMEOUT, &clkParams, NULL);
 	Clock_create(clk_SWI_GTZ_01336Hz,TIMEOUT, &clkParams, NULL);
 	Clock_create(clk_SWI_GTZ_01477Hz,TIMEOUT, &clkParams, NULL);
-	Clock_create(clk_SWI_GTZ_01633Hz, TIMEOUT, &clkParams, NULL);
+	Clock_create(clk_SWI_GTZ_01633Hz, TIMEOUT,&clkParams,NULL);
 
 
 	/* Start SYS_BIOS */
@@ -78,8 +80,8 @@ void clk_SWI_Generate_DTMF(UArg arg0)
 
 	tick = Clock_getTicks();
 
-	sample = (int) 32768.0*sin(2.0*PI*freq1*TICK_PERItickOD*) + 32768.0*sin(2.0*PI*freq2*TICK_PERIOD*tick);
-sample = sample >>8;
+	sample = (int)32768.0*sin(2.0*PI*freq1*TICK_PERIOD*tick) + 32768.0*sin(2.0*PI*freq2*TICK_PERIOD*tick);
+	sample = sample >>8;
 }
 
 /*
@@ -118,7 +120,6 @@ void clk_SWI_GTZ_0697Hz(UArg arg0)
     prod3 = prod3 * delay_2;
 
     Goertzel_Value = (prod1+prod2-prod3) >>15;
-    Goertzel_Value <<= 8; // Scale up value for sensitivity
     N = 0;
     delay_1 = delay_2 =0;
     }
@@ -160,7 +161,6 @@ void clk_SWI_GTZ_0770Hz(UArg arg0)
     prod3 = prod3 * delay_2;
 
     Goertzel_Value = (prod1+prod2-prod3) >>15;
-    Goertzel_Value <<= 8; // Scale up value for sensitivity
     N = 0;
     delay_1 = delay_2 =0;
     }
@@ -200,7 +200,6 @@ void clk_SWI_GTZ_0852Hz(UArg arg0)
     prod3 = prod3 * delay_2;
 
     Goertzel_Value = (prod1+prod2-prod3) >>15;
-    Goertzel_Value <<= 8; // Scale up value for sensitivity
     N = 0;
     delay_1 = delay_2 =0;
     }
@@ -239,7 +238,6 @@ void clk_SWI_GTZ_0941Hz(UArg arg0)
     prod3 = prod3 * delay_2;
 
     Goertzel_Value = (prod1+prod2-prod3) >>15;
-    Goertzel_Value <<= 8; // Scale up value for sensitivity
     N = 0;
     delay_1 = delay_2 =0;
     }
@@ -279,7 +277,6 @@ void clk_SWI_GTZ_01209Hz(UArg arg0)
     prod3 = prod3 * delay_2;
 
     Goertzel_Value = (prod1+prod2-prod3) >>15;
-    Goertzel_Value <<= 8; // Scale up value for sensitivity
     N = 0;
     delay_1 = delay_2 =0;
     }
@@ -317,7 +314,6 @@ void clk_SWI_GTZ_01336Hz(UArg arg0)
     prod3 = prod3 * delay_2;
 
     Goertzel_Value = (prod1+prod2-prod3) >>15;
-    Goertzel_Value <<= 8; // Scale up value for sensitivity
     N = 0;
     delay_1 = delay_2 =0;
     }
@@ -356,7 +352,6 @@ void clk_SWI_GTZ_01477Hz(UArg arg0)
     prod3 = prod3 * delay_2;
 
     Goertzel_Value = (prod1+prod2-prod3) >>15;
-    Goertzel_Value <<= 8; // Scale up value for sensitivity
     N = 0;
     delay_1 = delay_2 =0;
     }
@@ -396,7 +391,6 @@ void clk_SWI_GTZ_01633Hz(UArg arg0)
     prod3 = prod3 * delay_2;
 
     Goertzel_Value = (prod1+prod2-prod3) >>15;
-    Goertzel_Value <<= 8; // Scale up value for sensitivity
     N = 0;
     delay_1 = delay_2 =0;
     }
@@ -405,4 +399,3 @@ void clk_SWI_GTZ_01633Hz(UArg arg0)
 
     return;
 }
-
