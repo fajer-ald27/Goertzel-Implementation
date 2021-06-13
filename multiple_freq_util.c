@@ -32,11 +32,10 @@ short coef[8] = {0x6D02, 0x68AD, 0x63FC, 0x5EE7, 0x4A70, 0x4090, 0x3290, 0x23CE}
 
 void task1_dtmfDetect(void)
 {
-	int i, a1=0, a2=0, f1=0, f2=0, dig;
 	int input;
 
 	while (1) {
-			System_printf("\n Please press a key ( 0 to 9 or A, B, C, D or *, # ) \n");
+			System_printf("\n Please press a key from ( 0 to 9 or A, B, C, D or *, # ) \n");
 			System_flush();
 			scanf(" %c", &input);
 
@@ -107,62 +106,38 @@ void task1_dtmfDetect(void)
 
 				//A
 				case 8398145:
-					freq1 = 1633;
-					freq2 = 697;
-					break;
-
-				//a
-				case 8398177:
-					freq1 = 1633;
-					freq2 = 697;
+					freq1 = 697;
+					freq2 = 1633;
 					break;
 
 				//B
 				case 8398146:
-					freq1 = 1633;
-					freq2 = 770;
-					break;
-
-				//b
-				case 8398178:
-					freq1 = 1633;
-					freq2 = 770;
+					freq1 = 770;
+					freq2 = 1633;
 					break;
 
 				//C
 				case 8398147:
-					freq1 = 1633;
-					freq2 = 852;
-					break;
-
-				//c
-				case 8398179:
-					freq1 = 1633;
-					freq2 = 852;
+					freq1 = 852;
+					freq2 = 1633;
 					break;
 
 				//D
 				case 8398148:
-					freq1 = 1633;
-					freq2 = 941;
-					break;
-
-				//d
-				case 8398180:
-					freq1 = 1633;
-					freq2 = 941;
+					freq1 = 941;
+					freq2 = 1633;
 					break;
 
 				//*
 				case 8398122:
-					freq1 = 1209;
-					freq2 = 941;
+					freq1 = 941;
+					freq2 = 1209;
 					break;
 
 				//#
 				case 8398115:
-					freq1 = 1477;
-					freq2 = 941;
+					freq1 = 941;
+					freq2 = 1477;
 					break;
 
 				default:
@@ -174,14 +149,14 @@ void task1_dtmfDetect(void)
 			}
 
 	 if(freq1 == 0){
-		System_printf("\n Wrong inputs\n");
+		System_printf("\n Wrong input is pressed\n");
 		System_flush();
-		System_printf("\n The frequencies are freq1 = %d and freq2 = %d \n", freq1, freq2);
+		System_printf("\n The frequencies & magnitudes are freq1 = %d, freq2 = %d, mag1 = %d, mag2 = %d \n", freq1, freq2, mag1, mag2);
 	    System_flush();
 	  }else{
-		System_printf("\n The frequencies are freq1 = %d and freq2 = %d \n", freq1, freq2);
+		System_printf("\n The frequencies & magnitudes are freq1 = %d, freq2 = %d, mag1 = %d, mag2 = %d  \n", freq1, freq2, mag1, mag2);
 		System_flush();
-		System_printf("\n Please wait\n");
+		System_printf("\n Please wait for few minutes\n");
 		System_flush();
 
 		Task_sleep(500);
@@ -248,8 +223,6 @@ void task1_dtmfDetect(void)
 				System_printf("The wrong Button has been pressed");
 				System_flush();
 		}
-
-		a1=0, a2=0, f1=0, f2=0;
 
        }
 	}
